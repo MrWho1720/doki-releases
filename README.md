@@ -1,6 +1,6 @@
-# Lumera Client — releases
+# doki Client — releases
 
-Public installers, checksums and updater metadata for **Lumera Client**, a
+Public installers, checksums and updater metadata for **doki Client**, a
 Minecraft launcher and in-game client built on Rust and Tauri 2.
 
 There is no source code here. This repository exists so that the binaries can be
@@ -15,15 +15,17 @@ privately and only publishes once all of it has been validated.
 
 | File | What it is |
 | --- | --- |
-| `LumeraClient_<version>_windows-x86_64.msi` | Windows installer |
-| `LumeraClient_<version>_linux-x86_64.AppImage` | Linux, self-contained, self-updating |
-| `LumeraClient_<version>_linux-x86_64.deb` | Debian / Ubuntu package |
-| `LumeraClient_<version>_linux-x86_64.rpm` | Fedora / RHEL package |
+| `doki-client_<version>_windows-x86_64.msi` | Windows installer |
+| `doki-client_<version>_linux-x86_64.AppImage` | Linux, self-contained, self-updating |
+| `doki-client_<version>_linux-x86_64.deb` | Debian / Ubuntu package |
+| `doki-client_<version>_linux-x86_64.rpm` | Fedora / RHEL package |
 | `*.sig` | Detached updater signatures |
 | `SHA256SUMS.txt` | Checksums for everything above |
 | `latest.json` | Metadata the in-app updater reads |
 
-**There is no macOS build.** Lumera holds no Apple Developer signing identity,
+Releases up to v1.5.0 were published as **Lumera Client**, with files named `Lumera-Client_<version>_...`; the launcher was renamed doki Client after that, and those installs update to it in place.
+
+**There is no macOS build.** doki holds no Apple Developer signing identity,
 and an un-notarized DMG is refused by Gatekeeper on any Mac whose owner has not
 been talked through overriding it. Rather than publish a file most people cannot
 open, macOS is left out of the matrix until the certificate is real.
@@ -44,7 +46,7 @@ sha256sum -c SHA256SUMS.txt --ignore-missing
 On Windows:
 
 ```powershell
-Get-FileHash .\LumeraClient_1.0.0_windows-x86_64.msi -Algorithm SHA256
+Get-FileHash .\doki-client_1.0.0_windows-x86_64.msi -Algorithm SHA256
 ```
 
 Compare the result against the matching line in `SHA256SUMS.txt`.
@@ -54,13 +56,13 @@ Compare the result against the matching line in `SHA256SUMS.txt`.
 Windows installers are **not Authenticode signed** yet, so SmartScreen shows an
 Unknown Publisher warning on first install. Choose **More info → Run anyway**.
 That warning is the honest state of the build, not a fault on your machine, and
-it stays until Lumera holds a certificate.
+it stays until doki holds a certificate.
 
 That is a separate mechanism from update integrity. Every automatic update
-payload is signed with the Lumera updater key and verified before it is applied,
+payload is signed with the doki updater key and verified before it is applied,
 so an update cannot be substituted even though the first install is unsigned.
 
 ## Anything not published here is not an official build
 
-If a Lumera installer did not come from this repository's releases page, it did
-not come from Lumera. Local and development builds are not releases.
+If a doki installer did not come from this repository's releases page, it did
+not come from doki. Local and development builds are not releases.
